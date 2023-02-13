@@ -5,8 +5,9 @@
   <h1>Details for {{ $trip->name }}</h1>
   <p class="from">From - {{ $trip->from }}</p>
   <p class="to">To - {{ $trip->to }}</p>
-  <p class="to">Available Seats - {{ $trip->seats }}</p>
-  <p class="stations">Stations:</p>
+  <p class="date">Date - {{ $trip->date }}</p>
+  <p class="time">Time - {{ $trip->time }}</p>
+  <p class="stations">Stops:</p>
   <ul>
     @foreach( $trip->stations as $station )
         <li>{{$station}}</li>

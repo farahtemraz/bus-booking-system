@@ -6,11 +6,11 @@
   @for($i = 0; $i<sizeof($journeys); $i++)
   <p>{{$i+1}} - </p>
     <p>Trip that contains this route ----> {{ $trips[$i]->name }}</p>
-    <p>Trip Route: </p>
+    <p>Full trip route: </p>
     @foreach($trips[$i]->stations as $station)
         {{ $station }} -
     @endforeach
-    <p>Your journey's Route: </p>
+    <p>Your journey's route: </p>
     @foreach($journeysStations[$i] as $station)
         {{ $station }} -
     @endforeach
@@ -25,7 +25,7 @@
         </form>
         @endforeach
     @else
-        <p>There are currently no available seats on this trip</p>
+        <p class="mssg">There are currently no available seats on this trip for your desired journey.</p>
     @endif
     </div>
   @endfor

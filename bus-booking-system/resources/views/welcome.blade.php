@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-
 @section('content')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -24,14 +23,13 @@
             }
         </style>
     </head>
-    <body class="antialiased">
+    <body>
     <div class="content">
         <img src="/img/bus.png" alt="bus image">
         <div class="title m-b-md">
             Convienient Trips!
         </div>
-        <p class="mssg"> {{session('mssg')}} </p>
-        <a href="/trips">Book a trip</a>
+        <a class="back" href="{{ route('trips.index') }}">Book a trip</a>
     </div>
 
     </body>

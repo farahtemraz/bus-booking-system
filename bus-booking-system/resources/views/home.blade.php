@@ -16,7 +16,7 @@
 
                     {{ __('You are logged in!') }}
                     <br>
-                    <a href="/">Go to homepage</a>
+                    <a class="back" href="/">Go to homepage</a>
                 </div>
             </div>
         </div>

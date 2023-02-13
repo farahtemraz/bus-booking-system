@@ -2,47 +2,41 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="wrapper pizza-index">
-  <h1>Available Trips</h1>
-  <br>
-  @foreach($trips as $trip)
-    <div class="trip-item">
-      <h4><a href="/trips/{{ $trip->id }}">{{ $trip->name }}</a></h4>
-    </div>
-  @endforeach
-    <hr class="solid">
+<div class="wrapper trip-index">
+    <h1>Search for your trip</h1>
     <form action="/trips" method="POST">
     @csrf
     <label for="type">From:</label>
     <br>
     <select name="from" id="from">
-      <option value="Cairo">Cairo</option>
-      <option value="Asyut">Asyut</option>
-      <option value="AlFayyum">AlFayyum</option>
-      <option value="AlMinya">AlMinya</option>
-      <option value="Alexandria">Alexandria</option>
-      <option value="Suez">Suez</option>
-      <option value="Port-Said">Port-Said</option>
+        <option value="" disabled selected hidden>Choose departure city</option>
+        @foreach($cities as $city)
+            <option value="{{$city->name}}">{{$city->name}}</option>
+        @endforeach
     </select>
     <br>
     <label for="type">To:</label>
     <br>
     <select name="to" id="to">
-      <option value="Cairo">Cairo</option>
-      <option value="Asyut">Asyut</option>
-      <option value="AlFayyum">AlFayyum</option>
-      <option value="AlMinya">AlMinya</option>
-      <option value="Alexandria">Alexandria</option>
-      <option value="Suez">Suez</option>
-      <option value="Port-Said">Port-Said</option>
-
+        <option value="" disabled selected hidden>Choose arrival city</option>
+        @foreach($cities as $city)
+            <option value="{{$city->name}}">{{$city->name}}</option>
+        @endforeach
     </select>
     <br> 
     <br>
     <input type="submit" value="Search">
     <p class="mssg"> {{session('mssg')}} </p>
-  </form>
-
+    </form>
+    <hr class="solid">
+    <h1>Available Trips</h1>
+    @foreach($trips as $trip)
+    <div class="trip-item">
+        <ul>
+            <li><a class="list" href="/trips/{{ $trip->id }}">{{ $trip->name }}</a></li>
+        </ul>
+    </div>
+  @endforeach
 </div>
 
 @endsection

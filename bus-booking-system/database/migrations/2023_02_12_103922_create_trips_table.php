@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('from');
             $table->string('to');
             $table->string('stations');
-            $table->integer('seats')->length(11);
+            $table->date('date');
+            $table->time('time');
         });
     }
 
