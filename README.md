@@ -121,3 +121,49 @@ We have 4 predefined trips:
 ## Testing and Screenshots
 
 ***Login Page***
+
+***Registration Page***
+
+***Invalid credentials***
+
+***Home page***
+
+***Trips page***
+
+Here the user can either view a list of all available full trips on the system or search the system for a specific journey froma certain city to another city and see if there is a trip that covers this journey
+
+***Trips details page***
+
+The user is redirected here when he/she clicks on one of the trips listed on the Trips page shown above. They can see full trip details here
+
+***Cities dropdown***
+
+***Result of searching for a trip from Cairo to AlFayyum***
+
+Here we can see the result of the query. We have 2 trips in the system that can take a passnenger from Cairo to AlFayyum. The user can see details of the trip as well as the available seats for booking here.
+
+***Booking***
+
+To book a seat, the user clicks on the seat number and the is redirected here and shown a success message that the seat was successfully reserved to him/her.
+
+***Full trip***
+
+Here we see the output when we search for a certain journey and this journey is full booked (no seats avaiable to be reserved)
+
+***Unavailable trips***
+
+Here we see the output when the user searches for a journey that is not provided by the system
+
+***Data Validation***
+
+Here we see the error message shown when the user tries to search for a journey without specifying either departure city or arrival city or both
+
+***Logout***
+
+***Intermediate trips***
+
+Here we see an example where the user first searches for "Giza-Cairo" and gets the result. The result is a sub-trip of Giza-AlMinya trip. He decides to book seat 37. Next, he searches for "Cairo-AlMinya", which happens to be another sub-trip of "Giza-AlMinya" and he finds that seat 37 also available because it was only book for Giza-Cairo, after that it is free again that's why it can be re-booked by another person for "Cairo-AlMinya"
+
+***Occupied Seats***
+
+Here we tested searching for a "Luxor-Aswan" journey. We got the output where we can book seat 25, and we did book it. When we queried the same route again, we no longer see seat 25 as it is now occupied.
