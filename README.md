@@ -2,15 +2,15 @@
 
 This project is a web development project of a system to reserve seats on busses for your desired trips.
 
-# Motivation:
+**Motivation**:
 
 This project was built to create an easy interface for users to be able to search and book seats for their desired trips smoothly and quickly without facing booking problems.
 
-# Development stack
+**Development stack**
 
 The language used was PHP and the used stack included Laravel Framework and MySQL database. I installed XAMPP to have the needed environment for PHP and MySQL and used "phpMyAdmin" as the admin panel for MySQL database.
 
-# Setting up the project
+**Setting up the project**
 
 - clone the project
 - install composer dependencies -> `composer install`
