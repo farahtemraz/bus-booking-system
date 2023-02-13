@@ -2,28 +2,33 @@
 
 @section('content')
 <div class="wrapper trip-details">
-  <h1>Details for route</h1>
-  @foreach($journeys as $journey)
-    <p>From - {{ $journey->from }}</p>
-    <p>To - {{ $journey->to }}</p>
-    <p>Trip name - {{ $trip->name }}</p>
+  <h1>Available trips for your desired journey from {{$journeys[0]->from}} to {{$journeys[0]->to}}</h1>
+  @for($i = 0; $i<sizeof($journeys); $i++)
+  <p>{{$i+1}} - </p>
+    <p>Trip that contains this route ----> {{ $trips[$i]->name }}</p>
     <p>Trip Route: </p>
-    @foreach($trip->stations as $station)
+    @foreach($trips[$i]->stations as $station)
         {{ $station }} -
     @endforeach
-    <p>Journey Route: </p>
-    @foreach($stations as $station)
+    <p>Your journey's Route: </p>
+    @foreach($journeysStations[$i] as $station)
         {{ $station }} -
     @endforeach
-    <p>Available Seats: </p>
-    @foreach($seats as $seat)
-        <form action="{{ route('trips.book', $seat->id) }}" method="POST">
-        @csrf
-        <input type="hidden" value={{json_encode($stations)}} name=stations>
-        <button>{{ $seat->id }}</button>
-    </form>
-    @endforeach
-  @endforeach
+    <p>Choose your seat from one of the available seats below: </p>
+    <div class="flex">
+    @if(sizeof($seatsForEachTrip[$i]))
+        @foreach($seatsForEachTrip[$i] as $seat)
+            <form action="{{ route('trips.book', $seat->id) }}" method="POST">
+            @csrf
+            <input type="hidden" value={{json_encode($journeysStations[$i])}} name=stations>
+            <button>{{ $seat->id }}</button>
+        </form>
+        @endforeach
+    @else
+        <p>There are currently no available seats on this trip</p>
+    @endif
+    </div>
+  @endfor
 </div>
 <a href="{{ route('trips.index') }}" class="back"><- Back to all trips</a>
 @endsection

@@ -157,3 +157,11 @@ a.back {
     color: #777;
     text-decoration: none !important;
 }
+
+.flex {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -webkit-flexbox;
+    gap: var(--gap, 1rem);
+}
