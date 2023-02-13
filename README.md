@@ -118,4 +118,6 @@ We have 4 predefined trips:
 - The user has to be logged in in order to use the system (authentication)
 - in case of a new user, he/she can register first in order to use the system
 
-## Testing
+## Testing and Screenshots
+
+***Login Page***
