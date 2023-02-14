@@ -15,7 +15,7 @@ The language used was PHP and the used stack included Laravel Framework and MySQ
 - clone the project
 - install composer dependencies -> `composer install`
 - install NPM dependencies -> `npm install`
-- create .env file and fill it with the following content -> `
+- create .env file and fill it with the content provided in the submission email
 - create an empty database for the application and call it `bus-booking-system` 
 - connect to the database through the .env file configuration
 - migrate the database to create the tables -> `php artisan migrate`
@@ -128,6 +128,7 @@ I created an "occupation" column for each seat that specifies the sub-part of th
 We have 3 arrays that are used to determine the availbility of a seat. An array of the full route of the big trip, an array of the route of stations of that trip where this seat is occupied during so far and an array of the route of the stations that the user is currently searching for seats for. In our running example, those would be ["Cairo","AlFayyum", "AlMinya", "Asyut"], ["Cairo", "AlFayyum"], ["AlFayyum","AlMinya","Asyut"] respectively. We know that the order of the trip must be enforced, meaning that we should follow the main trip's route for any sub-routes and those sub-routes have to come in the order they are present at in the main route. So, we can't say that there is a sub-trip from trip 1 that goes from AlMinya to AlFayyum for example as the order is not enforced. I used this fact to check for seat avaialbility by looking at the current occupation array of the seat and the array of the route that should be added. Then, I would see, using the indicies of occurences of each city in the main trip route, which city comes before the other. So, in our example, we are trting to book this seat for  ["AlFayyum","AlMinya","Asyut"], so we have to check that this seat is not busy during any of these stations. So, we look at the current occupations array ["Cairo", "AlFayyum"]. If the first element of the new array comes after the last element of the current occupation array (or is equal to it), then this route could be added and would cause no conflicts. Similiarly, if the last element of the current occupations array comes before the first element of the new array, then we can add this route to this seat with no conflicts. In our example, "AlFayyum" (first element of the new array) is the same as the last element of the current occupations array, so the route can be added to the seat and the new occupations array would be ["Cairo", "AlFayyum", "AlMinya","Asyut"] since this seat is now booked by a user from Cairo to AlFayyum then this user will leave and another user will get on that seat from AlFayyum to Asyut. Hence, with this new occupations array, if we try to book this seat for any other route in trip 1, it will not be available as it is busy during the full route now as shown by the new occupation array.
 
 ## Some test cases to try
+
 - Test case 1: (all seats are still empty)
   - search for a trip from Alexandria to Cairo -> o/p = seats in Alexandria-Suez trip
   - pick a seat to book
@@ -135,6 +136,12 @@ We have 3 arrays that are used to determine the availbility of a seat. An array 
   - book it again
   - now try to search for Alexandria-Suez 
   - the previously booked seat will no longer be available as it is busy during all stations of the trip due to the previous 2 bookings, you will have to choose another seat to book on this trip (if available)
+- Test case 2:
+  - Try to search for a trip from Cairo to Aswan
+  - No trips will be found
+- Test case 3:
+  - Book a seat on the trip from Cairo-Asyut for the whole trip (meaning your start will be at Cairo and end at Asyut)
+  - Try to book this same seat again for any sub-trip on this trip (Cairo-AlFayyum for example), the seat will not be displayed because it is not available so you cannot book it.
 
 ## Remarks
 
