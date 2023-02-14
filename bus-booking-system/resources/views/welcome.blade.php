@@ -27,7 +27,7 @@
     <div class="content">
         <img src="/img/bus.png" alt="bus image">
         <div class="title m-b-md">
-            Convienient Trips!
+            Convenient Trips!
         </div>
         <a class="back" href="{{ route('trips.index') }}">Book a trip</a>
     </div>

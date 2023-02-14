@@ -4,16 +4,17 @@
 <div class="wrapper trip-details">
   <h1>Available trips for your desired journey from {{$journeys[0]->from}} to {{$journeys[0]->to}}</h1>
   @for($i = 0; $i<sizeof($journeys); $i++)
-  <p>{{$i+1}} - </p>
-    <p>Trip that contains this route ----> {{ $trips[$i]->name }}</p>
-    <p>Full trip route: </p>
+    <p>{{$i+1}} - Trip that contains this route ----> {{ $trips[$i]->name }}</p>
+    <p>Full trip route ----> 
     @foreach($trips[$i]->stations as $station)
         {{ $station }} -
-    @endforeach
-    <p>Your journey's route: </p>
+    @endforeach 
+    </p>
+    <p>Your journey's route ---->
     @foreach($journeysStations[$i] as $station)
         {{ $station }} -
     @endforeach
+    </p>
     <p>Choose your seat from one of the available seats below: </p>
     <div class="flex">
     @if(sizeof($seatsForEachTrip[$i]))
