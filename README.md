@@ -18,7 +18,6 @@ The language used was PHP and the used stack included Laravel Framework and MySQ
 - create .env file and fill it with the content provided in the submission email
 - create an empty database for the application and call it `bus-booking-system` 
 - connect to the database through the .env file configuration
-- migrate the database to create the tables -> `php artisan migrate`
 - import the database dump file provided in phpMyAdmin to obtain the data used locally for testing
 - to run the project -> `php artisan serve`
   - in case of an error `Vite manifest not found` is encountered, try running `npm run dev` in the terminal 
