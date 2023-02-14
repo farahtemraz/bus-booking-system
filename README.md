@@ -57,6 +57,10 @@ The language used was PHP and the used stack included Laravel Framework and MySQ
   - columns: id, user_id, seat_id, trip_id, journey, created_at, updated_at
   - user_id, seat_id and trip_id are all foreign keys that link the user who made the reservation to the seat he/she reserved and to the trip that this seat belongs to
   - the journey column indicates the journey that this user who made this reservation is going to (from where to where)
+  
+- Busses
+  - Since each trip has one specific bus, this table relates a bus to a trip 
+  - Columns: id, trip_id, created_at, updated_at
 
 **Data**
 
